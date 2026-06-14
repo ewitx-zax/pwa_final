@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Categorías</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c0001a" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="categorias.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">TECH<span>STORE</span></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="categorias.html" class="active">Categorías</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <p class="hero-tag">🗂️ EXPLORA TODO</p>
+      <h1>Nuestras <span>Categorías</span></h1>
+      <p>Encuentra exactamente lo que buscas por tipo de producto.</p>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS PRINCIPALES (cards grandes) -->
+  <section class="cats-principales">
+    <div class="section-header">
+      <h2>Categorías Principales</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cats-grid-grande">
+
+      <div class="cat-card grande" data-cat="laptops">
+        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800&q=80" alt="Laptops" />
+        <div class="cat-info">
+          <span class="cat-icon">💻</span>
+          <div>
+            <h3>Laptops</h3>
+            <p>Gaming, ultrabooks, workstations y más</p>
+            <span class="cat-count">24 productos</span>
+          </div>
+          <button class="btn-cat">Ver todo →</button>
+        </div>
+      </div>
+
+      <div class="cat-card grande" data-cat="smartphones">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80" alt="Smartphones" />
+        <div class="cat-info">
+          <span class="cat-icon">📱</span>
+          <div>
+            <h3>Smartphones</h3>
+            <p>Android, iOS, gama alta y media</p>
+            <span class="cat-count">18 productos</span>
+          </div>
+          <button class="btn-cat">Ver todo →</button>
+        </div>
+      </div>
+
+      <div class="cat-card grande" data-cat="audio">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80" alt="Audio" />
+        <div class="cat-info">
+          <span class="cat-icon">🎧</span>
+          <div>
+            <h3>Audio</h3>
+            <p>Audífonos, bocinas y sistemas de sonido</p>
+            <span class="cat-count">31 productos</span>
+          </div>
+          <button class="btn-cat">Ver todo →</button>
+        </div>
+      </div>
+
+      <div class="cat-card grande" data-cat="smartwatch">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80" alt="Smartwatch" />
+        <div class="cat-info">
+          <span class="cat-icon">⌚</span>
+          <div>
+            <h3>Smartwatch</h3>
+            <p>Fitness, premium y smartbands</p>
+            <span class="cat-count">15 productos</span>
+          </div>
+          <button class="btn-cat">Ver todo →</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS SECUNDARIAS -->
+  <section class="cats-secundarias">
+    <div class="section-header">
+      <h2>Más Categorías</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cats-grid-chico">
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1593640408182-31c228e4be9a?w=500&q=80" alt="Monitores" />
+        <div class="cat-chica-overlay">
+          <span>🖥️</span>
+          <h3>Monitores</h3>
+          <p>12 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&q=80" alt="Tablets" />
+        <div class="cat-chica-overlay">
+          <span>📟</span>
+          <h3>Tablets</h3>
+          <p>9 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&q=80" alt="Teclados" />
+        <div class="cat-chica-overlay">
+          <span>⌨️</span>
+          <h3>Teclados</h3>
+          <p>20 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&q=80" alt="Ratones" />
+        <div class="cat-chica-overlay">
+          <span>🖱️</span>
+          <h3>Ratones</h3>
+          <p>17 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&q=80" alt="Cámaras" />
+        <div class="cat-chica-overlay">
+          <span>📷</span>
+          <h3>Cámaras</h3>
+          <p>8 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80" alt="Almacenamiento" />
+        <div class="cat-chica-overlay">
+          <span>💾</span>
+          <h3>Almacenamiento</h3>
+          <p>22 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1461151304267-38535e780c79?w=500&q=80" alt="Redes" />
+        <div class="cat-chica-overlay">
+          <span>📡</span>
+          <h3>Redes & WiFi</h3>
+          <p>14 productos</p>
+        </div>
+      </div>
+
+      <div class="cat-chica">
+        <img src="https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=500&q=80" alt="Cargadores" />
+        <div class="cat-chica-overlay">
+          <span>🔋</span>
+          <h3>Cargadores</h3>
+          <p>26 productos</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BANNER PROMO -->
+  <section class="banner-promo">
+    <div class="promo-texto">
+      <p class="hero-tag">🔥 ESTA SEMANA</p>
+      <h2>¿Buscas la mejor oferta por categoría?</h2>
+      <p>Visita nuestra página de ofertas y ahorra hasta 50%.</p>
+      <a href="ofertas.html"><button class="btn-primary">Ver Ofertas</button></a>
+    </div>
+    <div class="promo-img">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80" alt="Promo" />
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section class="marcas">
+    <div class="section-header">
+      <h2>Marcas Disponibles</h2>
+      <div class="line"></div>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca">Apple</div>
+      <div class="marca">Samsung</div>
+      <div class="marca">Sony</div>
+      <div class="marca">LG</div>
+      <div class="marca">ASUS</div>
+      <div class="marca">Lenovo</div>
+      <div class="marca">HP</div>
+      <div class="marca">Dell</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">TECH<span>STORE</span></div>
+        <p>Tu tienda tecnológica de confianza.<br />Calidad garantizada en cada producto.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="ofertas.html">Ofertas</a>
+        <a href="categorias.html">Categorías</a>
+      </div>
+      <div class="footer-links">
+        <h4>Soporte</h4>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">Devoluciones</a>
+        <a href="#">Garantías</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-links">
+        <h4>Síguenos</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TechStore — Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="categorias.js"></script>
+</body>
+</html>

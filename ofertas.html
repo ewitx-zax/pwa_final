@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Ofertas</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c0001a" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="ofertas.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">TECH<span>STORE</span></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="producto.html ">Productos</a>
+      <a href="ofertas.html" class="active">Ofertas</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+  </header>
+
+  <!-- HERO OFERTA -->
+  <section class="oferta-hero">
+    <div class="oferta-hero-content">
+      <p class="hero-tag">🔥 TIEMPO LIMITADO</p>
+      <h1>Ofertas <span>Especiales</span></h1>
+      <p>Descuentos de hasta 50% en los mejores productos tecnológicos.</p>
+      <div class="countdown">
+        <div class="time-box"><span id="dias">02</span><small>Días</small></div>
+        <div class="sep">:</div>
+        <div class="time-box"><span id="horas">08</span><small>Horas</small></div>
+        <div class="sep">:</div>
+        <div class="time-box"><span id="minutos">45</span><small>Min</small></div>
+        <div class="sep">:</div>
+        <div class="time-box"><span id="segundos">30</span><small>Seg</small></div>
+      </div>
+    </div>
+    <div class="oferta-hero-img">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=640&q=80" alt="Ofertas TechStore" />
+    </div>
+  </section>
+
+  <!-- BANNER DESCUENTOS -->
+  <div class="banners-descuento">
+    <div class="banner-item">
+      <span class="pct">-50%</span>
+      <p>Audio & Accesorios</p>
+    </div>
+    <div class="banner-item">
+      <span class="pct">-30%</span>
+      <p>Smartphones</p>
+    </div>
+    <div class="banner-item">
+      <span class="pct">-20%</span>
+      <p>Laptops Gaming</p>
+    </div>
+    <div class="banner-item">
+      <span class="pct">-40%</span>
+      <p>Tablets & Más</p>
+    </div>
+  </div>
+
+  <!-- OFERTA DESTACADA (hero product) -->
+  <section class="oferta-destacada-section">
+    <div class="section-header">
+      <h2>⚡ Oferta del Día</h2>
+      <div class="line"></div>
+    </div>
+    <div class="oferta-destacada">
+      <div class="od-imagen">
+        <span class="od-badge">-40%</span>
+        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=700&q=80" alt="Laptop Gamer RTX" />
+      </div>
+      <div class="od-info">
+        <span class="cat-tag">💻 Laptops</span>
+        <h2>Laptop Gamer RTX 4070 Ti</h2>
+        <div class="estrellas">★★★★★ <small>128 reseñas</small></div>
+        <ul class="od-specs">
+          <li>✔ Intel Core i9 13ª Gen</li>
+          <li>✔ 32GB RAM DDR5</li>
+          <li>✔ 1TB NVMe SSD</li>
+          <li>✔ Pantalla 165Hz 1440p</li>
+        </ul>
+        <div class="od-precios">
+          <span class="precio-viejo-grande">$1,499.99</span>
+          <span class="precio-grande">$899.99</span>
+        </div>
+        <p class="ahorro">Ahorras $600.00 🎉</p>
+        <button class="btn-primary od-btn">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAS LAS OFERTAS -->
+  <section class="todas-ofertas">
+    <div class="section-header">
+      <h2>Todas las Ofertas</h2>
+      <div class="line"></div>
+    </div>
+    <div class="ofertas-grid">
+
+      <div class="producto-oferta">
+        <div class="badge oferta-badge">-30%</div>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" alt="Audífonos" />
+        <div class="producto-info">
+          <span class="cat-tag">🎧 Audio</span>
+          <h3>Audífonos Bluetooth Pro</h3>
+          <div class="estrellas">★★★★★</div>
+          <div class="precios-row">
+            <p class="precio">$79.99</p>
+            <span class="precio-viejo">$114.99</span>
+          </div>
+          <div class="barra-stock">
+            <div class="barra-fill" style="width:72%"></div>
+          </div>
+          <p class="stock-txt">72% vendido — ¡Apúrate!</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-oferta">
+        <div class="badge oferta-badge">-25%</div>
+        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&q=80" alt="Smartphone" />
+        <div class="producto-info">
+          <span class="cat-tag">📱 Smartphones</span>
+          <h3>Smartphone Pro Max 128GB</h3>
+          <div class="estrellas">★★★★☆</div>
+          <div class="precios-row">
+            <p class="precio">$899.99</p>
+            <span class="precio-viejo">$1,199.99</span>
+          </div>
+          <div class="barra-stock">
+            <div class="barra-fill" style="width:55%"></div>
+          </div>
+          <p class="stock-txt">55% vendido</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-oferta">
+        <div class="badge oferta-badge">-20%</div>
+        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80" alt="Bocina" />
+        <div class="producto-info">
+          <span class="cat-tag">🎧 Audio</span>
+          <h3>Bocina Bluetooth 360°</h3>
+          <div class="estrellas">★★★★☆</div>
+          <div class="precios-row">
+            <p class="precio">$49.99</p>
+            <span class="precio-viejo">$62.99</span>
+          </div>
+          <div class="barra-stock">
+            <div class="barra-fill" style="width:90%"></div>
+          </div>
+          <p class="stock-txt">90% vendido — ¡Últimas unidades!</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-oferta">
+        <div class="badge oferta-badge">-15%</div>
+        <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&q=80" alt="Tablet" />
+        <div class="producto-info">
+          <span class="cat-tag">📟 Tablets</span>
+          <h3>Tablet Android 10"</h3>
+          <div class="estrellas">★★★★☆</div>
+          <div class="precios-row">
+            <p class="precio">$299.99</p>
+            <span class="precio-viejo">$352.99</span>
+          </div>
+          <div class="barra-stock">
+            <div class="barra-fill" style="width:40%"></div>
+          </div>
+          <p class="stock-txt">40% vendido</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-oferta">
+        <div class="badge oferta-badge">-35%</div>
+        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&q=80" alt="Smartwatch" />
+        <div class="producto-info">
+          <span class="cat-tag">⌚ Smartwatch</span>
+          <h3>Smartwatch Fit Pro</h3>
+          <div class="estrellas">★★★★★</div>
+          <div class="precios-row">
+            <p class="precio">$129.99</p>
+            <span class="precio-viejo">$199.99</span>
+          </div>
+          <div class="barra-stock">
+            <div class="barra-fill" style="width:81%"></div>
+          </div>
+          <p class="stock-txt">81% vendido — ¡Apúrate!</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto-oferta">
+        <div class="badge oferta-badge">-22%</div>
+        <img src="https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=500&q=80" alt="Monitor" />
+        <div class="producto-info">
+          <span class="cat-tag">🖥️ Monitores</span>
+          <h3>Monitor FHD 27" 165Hz</h3>
+          <div class="estrellas">★★★★★</div>
+          <div class="precios-row">
+            <p class="precio">$259.99</p>
+            <span class="precio-viejo">$329.99</span>
+          </div>
+          <div class="barra-stock">
+            <div class="barra-fill" style="width:63%"></div>
+          </div>
+          <p class="stock-txt">63% vendido</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-content">
+      <p class="hero-tag">📩 ALERTAS DE OFERTAS</p>
+      <h2>¿No quieres perderte ninguna oferta?</h2>
+      <p>Suscríbete y recibe notificaciones de los mejores descuentos.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="tu@correo.com" />
+        <button class="btn-primary">Suscribirme</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">TECH<span>STORE</span></div>
+        <p>Tu tienda tecnológica de confianza.<br />Calidad garantizada en cada producto.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="ofertas.html">Ofertas</a>
+        <a href="#">Categorías</a>
+      </div>
+      <div class="footer-links">
+        <h4>Soporte</h4>
+        <a href="#">Contacto</a>
+        <a href="#">Devoluciones</a>
+        <a href="#">Garantías</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-links">
+        <h4>Síguenos</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TechStore — Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="ofertas.js"></script>
+</body>
+</html>

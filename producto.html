@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Productos</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c0001a" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="productos.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">TECH<span>STORE</span></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="productos.html" class="active">Productos</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="#">Categorías</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <p class="hero-tag">🛍️ CATÁLOGO COMPLETO</p>
+      <h1>Nuestros <span>Productos</span></h1>
+      <p>Encuentra la tecnología que necesitas al mejor precio.</p>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="filtros-section">
+    <div class="filtros">
+      <button class="filtro active" data-cat="todos">Todos</button>
+      <button class="filtro" data-cat="laptops">💻 Laptops</button>
+      <button class="filtro" data-cat="smartphones">📱 Smartphones</button>
+      <button class="filtro" data-cat="audio">🎧 Audio</button>
+      <button class="filtro" data-cat="smartwatch">⌚ Smartwatch</button>
+      <button class="filtro" data-cat="monitores">🖥️ Monitores</button>
+      <button class="filtro" data-cat="tablets">📟 Tablets</button>
+    </div>
+    <div class="orden">
+      <select id="ordenSelect">
+        <option value="">Ordenar por</option>
+        <option value="precio-asc">Menor precio</option>
+        <option value="precio-desc">Mayor precio</option>
+        <option value="nombre">Nombre A–Z</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- GRID DE PRODUCTOS -->
+  <section class="catalogo">
+    <p class="resultado-count"><span id="count">12</span> productos encontrados</p>
+    <div class="productos-grid" id="productosGrid">
+
+      <div class="producto" data-cat="laptops" data-precio="899.99" data-nombre="Laptop Gamer RTX 4070">
+        <div class="badge">TOP VENTAS</div>
+        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&q=80" alt="Laptop Gamer RTX 4070" />
+        <div class="producto-info">
+          <span class="cat-tag">Laptops</span>
+          <h3>Laptop Gamer RTX 4070</h3>
+          <div class="estrellas">★★★★★ <small>(128)</small></div>
+          <p class="precio">$899.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="smartphones" data-precio="1199.99" data-nombre="Smartphone Pro Max 256GB">
+        <div class="badge">NUEVO</div>
+        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&q=80" alt="Smartphone Pro Max" />
+        <div class="producto-info">
+          <span class="cat-tag">Smartphones</span>
+          <h3>Smartphone Pro Max 256GB</h3>
+          <div class="estrellas">★★★★☆ <small>(87)</small></div>
+          <p class="precio">$1,199.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="audio" data-precio="79.99" data-nombre="Audífonos Bluetooth Pro">
+        <div class="badge oferta-badge">-30%</div>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" alt="Audífonos Bluetooth Pro" />
+        <div class="producto-info">
+          <span class="cat-tag">Audio</span>
+          <h3>Audífonos Bluetooth Pro</h3>
+          <div class="estrellas">★★★★★ <small>(214)</small></div>
+          <p class="precio">$79.99 <span class="precio-viejo">$114.99</span></p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="tablets" data-precio="649.99" data-nombre="Tablet Pro 12 5G">
+        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&q=80" alt="Tablet Pro 12" />
+        <div class="producto-info">
+          <span class="cat-tag">Tablets</span>
+          <h3>Tablet Pro 12" 5G</h3>
+          <div class="estrellas">★★★★☆ <small>(56)</small></div>
+          <p class="precio">$649.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="smartwatch" data-precio="399.99" data-nombre="Smartwatch Ultra Series 9">
+        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&q=80" alt="Smartwatch Ultra Series 9" />
+        <div class="producto-info">
+          <span class="cat-tag">Smartwatch</span>
+          <h3>Smartwatch Ultra Series 9</h3>
+          <div class="estrellas">★★★★★ <small>(99)</small></div>
+          <p class="precio">$399.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="monitores" data-precio="549.99" data-nombre="Monitor Gaming 4K 144Hz">
+        <div class="badge">LIMITADO</div>
+        <img src="https://images.unsplash.com/photo-1593640408182-31c228e4be9a?w=500&q=80" alt="Monitor Gaming 4K" />
+        <div class="producto-info">
+          <span class="cat-tag">Monitores</span>
+          <h3>Monitor Gaming 4K 144Hz</h3>
+          <div class="estrellas">★★★★★ <small>(43)</small></div>
+          <p class="precio">$549.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="laptops" data-precio="1299.99" data-nombre="Laptop Ultrabook Pro">
+        <div class="badge">NUEVO</div>
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80" alt="Laptop Ultrabook Pro" />
+        <div class="producto-info">
+          <span class="cat-tag">Laptops</span>
+          <h3>Laptop Ultrabook Pro</h3>
+          <div class="estrellas">★★★★★ <small>(72)</small></div>
+          <p class="precio">$1,299.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="audio" data-precio="49.99" data-nombre="Bocina Bluetooth 360">
+        <div class="badge oferta-badge">-20%</div>
+        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80" alt="Bocina Bluetooth 360" />
+        <div class="producto-info">
+          <span class="cat-tag">Audio</span>
+          <h3>Bocina Bluetooth 360</h3>
+          <div class="estrellas">★★★★☆ <small>(155)</small></div>
+          <p class="precio">$49.99 <span class="precio-viejo">$62.99</span></p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="smartphones" data-precio="749.99" data-nombre="Smartphone Lite 128GB">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&q=80" alt="Smartphone Lite 128GB" />
+        <div class="producto-info">
+          <span class="cat-tag">Smartphones</span>
+          <h3>Smartphone Lite 128GB</h3>
+          <div class="estrellas">★★★★☆ <small>(61)</small></div>
+          <p class="precio">$749.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="smartwatch" data-precio="199.99" data-nombre="Smartwatch Fit Pro">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80" alt="Smartwatch Fit Pro" />
+        <div class="producto-info">
+          <span class="cat-tag">Smartwatch</span>
+          <h3>Smartwatch Fit Pro</h3>
+          <div class="estrellas">★★★★☆ <small>(38)</small></div>
+          <p class="precio">$199.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="monitores" data-precio="329.99" data-nombre="Monitor FHD 27 165Hz">
+        <img src="https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=500&q=80" alt="Monitor FHD 27" />
+        <div class="producto-info">
+          <span class="cat-tag">Monitores</span>
+          <h3>Monitor FHD 27" 165Hz</h3>
+          <div class="estrellas">★★★★★ <small>(89)</small></div>
+          <p class="precio">$329.99</p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-cat="tablets" data-precio="299.99" data-nombre="Tablet Android 10">
+        <div class="badge oferta-badge">-15%</div>
+        <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500&q=80" alt="Tablet Android 10" />
+        <div class="producto-info">
+          <span class="cat-tag">Tablets</span>
+          <h3>Tablet Android 10"</h3>
+          <div class="estrellas">★★★★☆ <small>(47)</small></div>
+          <p class="precio">$299.99 <span class="precio-viejo">$352.99</span></p>
+          <button class="btn-cart">Agregar al carrito</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">TECH<span>STORE</span></div>
+        <p>Tu tienda tecnológica de confianza.<br />Calidad garantizada en cada producto.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="ofertas.html">Ofertas</a>
+        <a href="#">Categorías</a>
+      </div>
+      <div class="footer-links">
+        <h4>Soporte</h4>
+        <a href="#">Contacto</a>
+        <a href="#">Devoluciones</a>
+        <a href="#">Garantías</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-links">
+        <h4>Síguenos</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TechStore — Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="productos.js"></script>
+</body>
+</html>

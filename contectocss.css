@@ -1,0 +1,326 @@
+/* ============================
+   CONTACTO.CSS
+   Estilos exclusivos — página Contacto
+   ============================ */
+
+/* PAGE HERO */
+.page-hero {
+  background: linear-gradient(135deg, #1a0005 0%, #0d0d0d 70%);
+  padding: 80px 8% 70px;
+  border-bottom: 2px solid var(--rojo-oscuro);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(192,0,26,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero-content { max-width: 620px; }
+.page-hero-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  letter-spacing: 3px;
+  color: var(--blanco);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.page-hero-content h1 span { color: var(--rojo); }
+.page-hero-content p { color: var(--texto-suave); font-size: 18px; }
+
+/* CONTACTO MAIN */
+.contacto-main {
+  padding: 90px 8%;
+  background: var(--negro);
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* INFO CARDS */
+.info-col { display: flex; flex-direction: column; gap: 16px; }
+
+.info-card {
+  background: var(--negro-card);
+  border: 1px solid var(--gris);
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.info-card:hover {
+  border-color: var(--rojo-oscuro);
+  transform: translateX(4px);
+}
+.info-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: rgba(192,0,26,.1);
+  border: 1px solid var(--rojo-oscuro);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: var(--blanco);
+  margin-bottom: 5px;
+}
+.info-card p { color: var(--texto-suave); font-size: 14px; line-height: 1.7; }
+
+/* REDES */
+.redes {
+  background: var(--negro-card);
+  border: 1px solid var(--gris);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.redes h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--blanco);
+  margin-bottom: 14px;
+}
+.redes-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.red {
+  display: block;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: var(--texto-suave);
+  border: 1px solid var(--gris-claro);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.red:hover { color: var(--blanco); background: rgba(192,0,26,.1); border-color: var(--rojo); }
+
+/* FORMULARIO */
+.form-col {}
+.form-card {
+  background: var(--negro-card);
+  border: 1px solid var(--gris);
+  border-radius: 14px;
+  padding: 44px 40px;
+}
+.form-card h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: var(--blanco);
+  margin-bottom: 6px;
+}
+.form-card > p { color: var(--texto-suave); font-size: 15px; margin-bottom: 32px; }
+
+/* ÉXITO */
+.form-success {
+  background: rgba(74,222,128,.08);
+  border: 1px solid #16a34a;
+  border-radius: 10px;
+  padding: 32px 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-success span { font-size: 40px; display: block; margin-bottom: 12px; }
+.form-success h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #4ade80;
+  margin-bottom: 6px;
+}
+.form-success p { color: var(--texto-suave); font-size: 15px; }
+
+/* FORM GROUPS */
+form { display: flex; flex-direction: column; gap: 20px; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group { display: flex; flex-direction: column; gap: 7px; position: relative; }
+
+label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+input, select, textarea {
+  background: var(--gris);
+  border: 1px solid var(--gris-claro);
+  color: var(--blanco);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+input::placeholder, textarea::placeholder { color: #555; }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px rgba(192,0,26,.12);
+}
+input.invalido, select.invalido, textarea.invalido {
+  border-color: var(--rojo);
+}
+select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a0a0a0' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+select option { background: var(--negro-card); }
+textarea { resize: vertical; min-height: 120px; }
+
+.error {
+  font-size: 12px;
+  color: var(--rojo);
+  font-weight: 600;
+  min-height: 16px;
+}
+
+.char-count {
+  font-size: 12px;
+  color: var(--texto-suave);
+  text-align: right;
+  margin-top: -4px;
+}
+
+.btn-enviar {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* MAPA */
+.mapa-section {
+  padding: 90px 8%;
+  background: var(--negro-medio);
+}
+.mapa-wrapper {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--rojo-oscuro);
+  box-shadow: 0 10px 40px rgba(192,0,26,.15);
+}
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+  border: none;
+  filter: invert(90%) hue-rotate(180deg) saturate(0.4) brightness(0.85);
+}
+.mapa-pin {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--negro-card);
+  border: 1px solid var(--rojo-oscuro);
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--sombra);
+}
+.mapa-pin span { font-size: 22px; }
+.mapa-pin p { color: var(--blanco); font-weight: 700; font-size: 14px; letter-spacing: 0.5px; }
+
+/* FAQ */
+.faq {
+  padding: 90px 8%;
+  background: var(--negro);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--negro-card);
+  border: 1px solid var(--gris);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.faq-item:hover { border-color: var(--rojo-oscuro); }
+.faq-item.abierto { border-color: var(--rojo); }
+
+.faq-pregunta {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  color: var(--blanco);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.faq-item.abierto .faq-pregunta { color: var(--rojo); }
+.faq-arrow {
+  font-size: 12px;
+  color: var(--texto-suave);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+.faq-item.abierto .faq-arrow { transform: rotate(180deg); color: var(--rojo); }
+
+.faq-respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s;
+  padding: 0 22px;
+}
+.faq-item.abierto .faq-respuesta {
+  max-height: 200px;
+  padding: 0 22px 18px;
+}
+.faq-respuesta p { color: var(--texto-suave); font-size: 15px; line-height: 1.7; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contacto-main { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .page-hero { padding: 60px 5% 50px; }
+  .page-hero-content h1 { font-size: 44px; }
+  .contacto-main, .mapa-section, .faq { padding: 60px 5%; }
+  .form-card { padding: 28px 22px; }
+  .form-row { grid-template-columns: 1fr; }
+  .mapa-wrapper iframe { height: 280px; }
+}

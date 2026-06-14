@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Contacto</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c0001a" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="contectocss.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">TECH<span>STORE</span></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="contacto.html" class="active">Contacto</a>
+    </nav>
+    <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <p class="hero-tag">📞 ESTAMOS AQUÍ</p>
+      <h1>Contáctanos <span>24/7</span></h1>
+      <p>Nuestro equipo está listo para ayudarte con lo que necesites.</p>
+    </div>
+  </section>
+
+  <!-- INFO + FORMULARIO -->
+  <section class="contacto-main">
+
+    <!-- INFO CARDS -->
+    <div class="info-col">
+
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <div>
+          <h3>Dirección</h3>
+          <p>Av. Tecnología 2026, Col. Centro<br />San Salvador, El Salvador</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">📞</div>
+        <div>
+          <h3>Teléfono</h3>
+          <p>+503 2200-0000<br />Lunes a Domingo, 8am – 8pm</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">📧</div>
+        <div>
+          <h3>Correo</h3>
+          <p>soporte@techstore.sv<br />ventas@techstore.sv</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">💬</div>
+        <div>
+          <h3>Chat en vivo</h3>
+          <p>Disponible las 24 horas,<br />los 7 días de la semana.</p>
+        </div>
+      </div>
+
+      <!-- REDES SOCIALES -->
+      <div class="redes">
+        <h4>Síguenos</h4>
+        <div class="redes-btns">
+          <a href="#" class="red instagram">📸 Instagram</a>
+          <a href="#" class="red facebook">📘 Facebook</a>
+          <a href="#" class="red tiktok">🎵 TikTok</a>
+          <a href="#" class="red youtube">▶️ YouTube</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="form-col">
+      <div class="form-card">
+        <h2>Envíanos un mensaje</h2>
+        <p>Responderemos en menos de 24 horas.</p>
+
+        <div id="formSuccess" class="form-success" style="display:none;">
+          <span>✔</span>
+          <h3>¡Mensaje enviado!</h3>
+          <p>Nos pondremos en contacto contigo pronto.</p>
+        </div>
+
+        <form id="contactForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" />
+              <span class="error" id="errNombre"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" placeholder="tu@correo.com" />
+              <span class="error" id="errEmail"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="asunto">Asunto *</label>
+            <select id="asunto">
+              <option value="">Selecciona un asunto</option>
+              <option value="compra">Consulta de compra</option>
+              <option value="envio">Estado de envío</option>
+              <option value="devolucion">Devolución / Garantía</option>
+              <option value="soporte">Soporte técnico</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="error" id="errAsunto"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono (opcional)</label>
+            <input type="tel" id="telefono" placeholder="+503 0000-0000" />
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+            <span class="error" id="errMensaje"></span>
+            <span class="char-count"><span id="charCount">0</span>/500</span>
+          </div>
+
+          <button type="submit" class="btn-enviar btn-primary">
+            <span id="btnTxt">Enviar Mensaje</span>
+            <span id="btnLoader" style="display:none;">Enviando...</span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- MAPA (decorativo) -->
+  <section class="mapa-section">
+    <div class="section-header">
+      <h2>Encuéntranos</h2>
+      <div class="line"></div>
+    </div>
+    <div class="mapa-wrapper">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-89.23%2C13.68%2C-89.17%2C13.73&layer=mapnik"
+        title="Mapa TechStore"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+      <div class="mapa-pin">
+        <span>📍</span>
+        <p>TechStore — San Salvador</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ RÁPIDO -->
+  <section class="faq">
+    <div class="section-header">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="line"></div>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <button class="faq-pregunta">
+          ¿Cuánto tarda el envío?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-respuesta">
+          <p>Realizamos entregas en 24–48 horas hábiles dentro del país. Para zonas remotas puede tomar hasta 3 días.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pregunta">
+          ¿Puedo devolver un producto?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-respuesta">
+          <p>Sí, tienes 30 días desde la compra para solicitar una devolución. El producto debe estar en su empaque original y sin uso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pregunta">
+          ¿Ofrecen garantía?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-respuesta">
+          <p>Todos nuestros productos tienen garantía mínima de 1 año. Algunos modelos cuentan con garantía extendida de hasta 2 años.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pregunta">
+          ¿Qué métodos de pago aceptan?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-respuesta">
+          <p>Aceptamos tarjetas de crédito/débito (Visa, Mastercard), transferencias bancarias, PayPal y pago en efectivo contra entrega.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pregunta">
+          ¿Tienen tienda física?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-respuesta">
+          <p>Sí, nuestra tienda principal está ubicada en Av. Tecnología 2026, San Salvador. Abierta de lunes a sábado de 9am a 7pm.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pregunta">
+          ¿Los productos son originales?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-respuesta">
+          <p>Absolutamente. Solo trabajamos con distribuidores autorizados. Todos los productos incluyen factura y empaque oficial.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">TECH<span>STORE</span></div>
+        <p>Tu tienda tecnológica de confianza.<br />Calidad garantizada en cada producto.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="ofertas.html">Ofertas</a>
+        <a href="categorias.html">Categorías</a>
+      </div>
+      <div class="footer-links">
+        <h4>Soporte</h4>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">Devoluciones</a>
+        <a href="#">Garantías</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-links">
+        <h4>Síguenos</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TechStore — Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="contacto.js"></script>
+</body>
+</html>
