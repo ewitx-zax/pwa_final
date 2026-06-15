@@ -2,21 +2,26 @@
   "name": "TechStore",
   "short_name": "TechStore",
   "description": "La mejor tecnología al mejor precio",
-  "start_url": "/index.html",
+  "start_url": "/pwa_final/index.html",
+  "scope": "/pwa_final/",
   "display": "standalone",
   "background_color": "#0d0d0d",
   "theme_color": "#c0001a",
   "orientation": "portrait-primary",
+  "lang": "es",
+  "categories": ["shopping", "lifestyle"],
   "icons": [
     {
-      "src": "static.img/icon.png",
+      "src": "icon.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "static.img/icon.png",
+      "src": "icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
