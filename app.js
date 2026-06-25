@@ -53,27 +53,30 @@ window.addEventListener('appinstalled', () => {
 /* ---- CARRITO ---- */
 let cartItems = [];
 
+// Crear el panel del carrito dinámicamente
 const cartPanel = document.createElement('div');
 cartPanel.id = 'cartPanel';
 cartPanel.innerHTML = `
-  <div id="cartOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;"></div>
+  <div id="cartOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:998;"></div>
   <div id="cartDrawer" style="
     display:none;position:fixed;top:0;right:0;height:100%;width:340px;max-width:95vw;
-    background:#111;border-left:1px solid #333;z-index:1000;
-    flex-direction:column;font-family:inherit;
+    background:#111;border-left:2px solid #c0001a;z-index:999;
+    flex-direction:column;font-family:inherit;box-shadow:-8px 0 40px rgba(0,0,0,0.6);
   ">
-    <div style="padding:16px 20px;border-bottom:1px solid #333;display:flex;align-items:center;justify-content:space-between;">
-      <h3 style="margin:0;font-size:16px;color:#fff;">🛒 Tu carrito</h3>
-      <button id="closeCart" style="background:none;border:none;color:#aaa;font-size:22px;cursor:pointer;line-height:1;">✕</button>
+    <div style="padding:18px 20px;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;justify-content:space-between;">
+      <h3 style="margin:0;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#fff;">🛒 Tu carrito</h3>
+      <button id="closeCart" style="background:none;border:none;color:#a0a0a0;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px;transition:color 0.2s;">✕</button>
     </div>
     <div id="cartItemsList" style="flex:1;overflow-y:auto;padding:12px 16px;"></div>
-    <div style="padding:16px 20px;border-top:1px solid #333;">
-      <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px;">
-        <span>Total:</span><span id="cartTotal">$0.00</span>
+    <div style="padding:16px 20px;border-top:1px solid #2a2a2a;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:15px;font-weight:700;color:#fff;">
+        <span>Total:</span><span id="cartTotal" style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#c0001a;">$0.00</span>
       </div>
       <button id="checkoutBtn" style="
-        width:100%;padding:12px;background:#c0001a;color:#fff;
-        border:none;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;
+        width:100%;padding:13px;background:#c0001a;color:#fff;
+        border:none;border-radius:6px;font-family:'Rajdhani',sans-serif;
+        font-weight:700;font-size:15px;letter-spacing:1.5px;
+        text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.15s;
       ">Proceder al pago</button>
     </div>
   </div>
@@ -108,17 +111,23 @@ function renderCart() {
   const countEl = document.querySelector('.cart-count');
 
   if (cartItems.length === 0) {
-    cartItemsList.innerHTML = '<p style="text-align:center;color:#888;padding:24px 0;font-size:14px;">Tu carrito está vacío</p>';
+    cartItemsList.innerHTML = `
+      <div style="text-align:center;padding:40px 0;color:#a0a0a0;font-size:14px;">
+        <span style="font-size:40px;display:block;margin-bottom:10px;">🛒</span>
+        Tu carrito está vacío
+      </div>
+    `;
   } else {
     cartItemsList.innerHTML = cartItems.map((item, i) => `
-      <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #222;">
-        <img src="${item.img}" alt="${item.name}" style="width:48px;height:48px;object-fit:cover;border-radius:6px;background:#222;" />
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+        <img src="${item.img}" alt="${item.name}" style="width:52px;height:52px;object-fit:cover;border-radius:6px;background:#2a2a2a;" />
         <div style="flex:1;">
-          <p style="margin:0 0 2px;font-size:13px;font-weight:600;color:#fff;">${item.name}</p>
-          <p style="margin:0;font-size:12px;color:#aaa;">${item.price}</p>
+          <p style="margin:0 0 3px;font-size:13px;font-weight:700;color:#fff;">${item.name}</p>
+          <p style="margin:0;font-size:14px;color:#c0001a;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;">${item.price}</p>
         </div>
         <button data-index="${i}" class="remove-item" style="
-          background:none;border:none;color:#666;font-size:18px;cursor:pointer;
+          background:none;border:none;color:#a0a0a0;font-size:18px;cursor:pointer;
+          padding:4px 6px;border-radius:4px;transition:color 0.2s;line-height:1;
         ">🗑</button>
       </div>
     `).join('');
@@ -162,7 +171,7 @@ function iniciarCarrito() {
 
       const original = btn.textContent;
       btn.textContent = '✔ Añadido';
-      btn.style.background = 'var(--rojo)';
+      btn.style.background = '#c0001a';
       btn.style.color = 'white';
       setTimeout(() => {
         btn.textContent = original;
@@ -177,18 +186,9 @@ function iniciarCarrito() {
 
 /* ---- BOTONES HERO ---- */
 function iniciarHero() {
-  const btns = document.querySelectorAll('.hero-buttons button');
-  if (!btns.length) return;
-
-  // "Comprar Ahora" → productos
-  btns[0]?.addEventListener('click', () => {
-    window.location.href = 'producto.html';
-  });
-
-  // "Ver Catálogo" → ofertas
-  btns[1]?.addEventListener('click', () => {
-    window.location.href = 'ofertas.html';
-  });
+  // Los botones del hero ya son <a> con href, así que no necesitan JS
+  // Solo aseguramos que funcionen con las rutas correctas
+  console.log('[Hero] Botones listos');
 }
 
 /* ---- COUNTDOWN OFERTA ---- */
