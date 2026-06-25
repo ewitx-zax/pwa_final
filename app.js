@@ -1,5 +1,5 @@
 // ============================
-//   TECHSTORE — APP.JS (VERSIÓN ROBUSTA)
+//   TECHSTORE — APP.JS (VERSIÓN ESTABLE)
 //   PWA + Carrito + Countdown
 // ============================
 
@@ -53,9 +53,8 @@ window.addEventListener('appinstalled', () => {
 /* ---- CARRITO ---- */
 let cartItems = [];
 
-// Crear el panel del carrito dinámicamente
+// Crear el panel del carrito SOLO UNA VEZ
 function crearPanelCarrito() {
-  // Verificar si ya existe para no duplicar
   if (document.getElementById('cartPanel')) return;
   
   const cartPanel = document.createElement('div');
@@ -163,32 +162,25 @@ function renderCart() {
   if (countEl) countEl.textContent = cartItems.length;
 }
 
-/* ---- FUNCIÓN PRINCIPAL DEL CARRITO (MÁS ROBUSTA) ---- */
+/* ---- FUNCIÓN PRINCIPAL DEL CARRITO ---- */
 function iniciarCarrito() {
   console.log('[Carrito] Inicializando...');
   
-  // Buscar TODOS los botones con clase .btn-cart
   const btns = document.querySelectorAll('.btn-cart');
   console.log(`[Carrito] Encontrados ${btns.length} botones`);
   
-  // Buscar el ícono del carrito
   const cartIcon = document.querySelector('.cart-icon');
   if (cartIcon) {
     cartIcon.style.cursor = 'pointer';
+    // Remover eventos viejos para evitar duplicados
+    cartIcon.removeEventListener('click', openCart);
     cartIcon.addEventListener('click', openCart);
   }
 
-  // Si no hay botones, no hacemos nada más
-  if (btns.length === 0) {
-    console.warn('[Carrito] No se encontraron botones .btn-cart');
-    return;
-  }
-
-  // Agregar evento a CADA botón
-  btns.forEach((btn, index) => {
-    // Eliminar eventos anteriores para evitar duplicados
+  btns.forEach(btn => {
+    // Remover eventos viejos
     btn.removeEventListener('click', handleAddToCart);
-    // Agregar nuevo evento
+    // Agregar evento nuevo
     btn.addEventListener('click', handleAddToCart);
   });
 
@@ -200,13 +192,11 @@ function handleAddToCart(event) {
   const btn = event.currentTarget;
   const card = btn.closest('.producto');
   
-  // Si no encuentra el contenedor .producto, buscar el padre más cercano
   if (!card) {
-    console.warn('[Carrito] No se encontró el contenedor .producto');
+    console.warn('[Carrito] No se encontró .producto');
     return;
   }
 
-  // Obtener datos del producto (con fallbacks)
   const nameEl = card.querySelector('h3');
   const priceEl = card.querySelector('.precio');
   const imgEl = card.querySelector('img');
@@ -215,11 +205,9 @@ function handleAddToCart(event) {
   const price = priceEl ? priceEl.textContent.trim() : '$0';
   const img = imgEl ? imgEl.src : 'https://via.placeholder.com/100';
 
-  // Agregar al carrito
   cartItems.push({ name, price, img });
   renderCart();
 
-  // Feedback visual
   const originalText = btn.textContent;
   btn.textContent = '✔ Añadido';
   btn.style.background = '#c0001a';
@@ -232,12 +220,6 @@ function handleAddToCart(event) {
   }, 1500);
 
   console.log(`[Carrito] Añadido: ${name} - ${price}`);
-}
-
-/* ---- BOTONES HERO ---- */
-function iniciarHero() {
-  // Los botones del hero ya son <a> con href, no necesitan JS
-  console.log('[Hero] Botones listos');
 }
 
 /* ---- COUNTDOWN OFERTA ---- */
@@ -269,41 +251,20 @@ function efectoHeader() {
   });
 }
 
-/* ---- MUTATION OBSERVER (para detectar productos agregados dinámicamente) ---- */
-function observarCambios() {
-  const observer = new MutationObserver(() => {
-    // Si se agregan nuevos botones, reiniciar el carrito
-    const btns = document.querySelectorAll('.btn-cart');
-    if (btns.length > 0) {
-      iniciarCarrito();
-    }
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-}
-
 /* ---- INIT ---- */
 document.addEventListener('DOMContentLoaded', () => {
   console.log('[TechStore] Inicializando...');
   iniciarCarrito();
   iniciarCountdown();
   efectoHeader();
-  iniciarHero();
-  observarCambios(); // Para detectar nuevos productos
 });
 
-// También ejecutar cuando la página esté completamente cargada
+// También ejecutar después de cargar todo
 window.addEventListener('load', () => {
-  // Re-inicializar por si acaso
-  setTimeout(() => {
-    iniciarCarrito();
-  }, 500);
+  setTimeout(iniciarCarrito, 300);
 });
 
-/* ---- EXPONER FUNCIONES GLOBALES (para depuración) ---- */
-window.reiniciarCarrito = iniciarCarrito;
+/* ---- COMANDOS PARA CONSOLA (ÚTILES PARA DEPURAR) ---- */
+window.recargarCarrito = iniciarCarrito;
 window.verCarrito = () => console.log('Carrito:', cartItems);
-window.limpiarCarrito = () => { cartItems = []; renderCart(); };
+window.vaciarCarrito = () => { cartItems = []; renderCart(); };
