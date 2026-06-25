@@ -1,97 +1,72 @@
 // ============================
-//   TECHSTORE — SERVICE-WORKER.JS
-//   Base: /pwa_final/ (GitHub Pages)
+//   SERVICE WORKER - TECHSTORE
+//   VERSIÓN: 2.0.1 ← CAMBIA ESTO CADA VEZ
 // ============================
 
-const CACHE_NAME = 'techstore-v2';
-const BASE = '/pwa_final';
+const CACHE_NAME = 'techstore-v2.0.1'; // ← Cambia el número
 
 const urlsToCache = [
-  BASE + '/',
-  BASE + '/index.html',
-  BASE + '/productos.html',
-  BASE + '/ofertas.html',
-  BASE + '/categorias.html',
-  BASE + '/contacto.html',
-  BASE + '/style.css',
-  BASE + '/productos.css',
-  BASE + '/ofertas.css',
-  BASE + '/categorias.css',
-  BASE + '/contacto.css',
-  BASE + '/app.js',
-  BASE + '/productos.js',
-  BASE + '/ofertas.js',
-  BASE + '/categorias.js',
-  BASE + '/contacto.js',
-  BASE + '/manifest.json'
+  '/',
+  '/index.html',
+  '/style.css',
+  '/app.js',
+  '/producto.html',
+  '/ofertas.html',
+  '/categorias.html',
+  '/contacto.html',
+  '/manifest.json',
+  '/static.img/icon.png'
 ];
 
-/* ---- INSTALL: precachear todo ---- */
+// Instalación
 self.addEventListener('install', event => {
-  console.log('[SW] Instalando...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('[SW] Cacheando archivos');
-        // addAll falla si UNO falla; usamos add individual para ser tolerantes
-        return Promise.allSettled(
-          urlsToCache.map(url => cache.add(url).catch(e => console.warn('[SW] No se pudo cachear:', url, e)))
-        );
+        console.log('[SW] Cache abierto');
+        return cache.addAll(urlsToCache);
       })
+      .then(() => self.skipWaiting()) // ← Forza activación inmediata
   );
-  self.skipWaiting();
 });
 
-/* ---- ACTIVATE: limpiar cachés viejos ---- */
+// Activación - Limpia cachés viejas
 self.addEventListener('activate', event => {
-  console.log('[SW] Activando...');
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys
-          .filter(key => key !== CACHE_NAME)
-          .map(key => {
-            console.log('[SW] Borrando caché viejo:', key);
-            return caches.delete(key);
-          })
-      )
-    )
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            console.log('[SW] Eliminando caché antigua:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(() => self.clients.claim()) // ← Toma control inmediato
   );
-  self.clients.claim();
 });
 
-/* ---- FETCH: Cache First, luego Red ---- */
+// Fetch
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-
-  const url = new URL(event.request.url);
-
-  // Imágenes externas (Unsplash, Google Fonts): Network First
-  if (url.hostname !== self.location.hostname) {
-    event.respondWith(
-      fetch(event.request)
-        .then(response => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-          }
-          return response;
-        })
-        .catch(() => caches.match(event.request))
-    );
-    return;
-  }
-
-  // Archivos locales: Cache First
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).then(response => {
-        if (!response || response.status !== 200) return response;
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-        return response;
-      });
-    })
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request)
+          .then(fetchResponse => {
+            return caches.open(CACHE_NAME)
+              .then(cache => {
+                if (event.request.url.startsWith(self.location.origin)) {
+                  cache.put(event.request, fetchResponse.clone());
+                }
+                return fetchResponse;
+              });
+          })
+          .catch(() => {
+            return new Response('Error de conexión', {
+              status: 503,
+              statusText: 'Service Unavailable'
+            });
+          });
+      })
   );
 });
