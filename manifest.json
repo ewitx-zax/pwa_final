@@ -1,15 +1,13 @@
 {
   "name": "TechStore",
   "short_name": "TechStore",
-  "description": "La mejor tecnología al mejor precio",
-  "start_url": "/pwa_final/index.html",
-  "scope": "/pwa_final/",
+  "description": "Tu tienda tecnológica de confianza",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#0d0d0d",
   "theme_color": "#c0001a",
-  "orientation": "portrait-primary",
-  "lang": "es",
-  "categories": ["shopping", "lifestyle"],
+  "orientation": "portrait",
+  "version": "2.0.1",
   "icons": [
     {
       "src": "icon.png",
