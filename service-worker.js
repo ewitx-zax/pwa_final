@@ -1,9 +1,9 @@
 // ============================
 //   SERVICE WORKER - TECHSTORE
-//   VERSIÓN: 2.0.1 ← CAMBIA ESTO CADA VEZ
+//   VERSIÓN: 2.0.0
 // ============================
 
-const CACHE_NAME = 'techstore-v2.0.1'; // ← Cambia el número
+const CACHE_NAME = 'techstore-v2.0.0';
 
 const urlsToCache = [
   '/',
@@ -26,7 +26,7 @@ self.addEventListener('install', event => {
         console.log('[SW] Cache abierto');
         return cache.addAll(urlsToCache);
       })
-      .then(() => self.skipWaiting()) // ← Forza activación inmediata
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -42,16 +42,20 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    }).then(() => self.clients.claim()) // ← Toma control inmediato
+    }).then(() => self.clients.claim())
   );
 });
 
-// Fetch
+// Fetch - Estrategia Cache First con fallback a red
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        return response || fetch(event.request)
+        if (response) {
+          return response;
+        }
+        
+        return fetch(event.request)
           .then(fetchResponse => {
             return caches.open(CACHE_NAME)
               .then(cache => {
@@ -62,6 +66,7 @@ self.addEventListener('fetch', event => {
               });
           })
           .catch(() => {
+            // Si falla todo, mostrar página de error
             return new Response('Error de conexión', {
               status: 503,
               statusText: 'Service Unavailable'
