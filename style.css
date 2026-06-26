@@ -537,7 +537,7 @@ footer { background: #080808; border-top: 2px solid var(--rojo); }
 .footer-top {
   padding: 60px 8% 40px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
 }
 .footer-brand .logo { font-size: 28px; margin-bottom: 12px; display: block; }
